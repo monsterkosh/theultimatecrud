@@ -27,14 +27,6 @@ export class UsersController {
         return this.userService.findUser(id);
     }
 
-    @Post()
-    async createUser(@Body() createUserDTO: CreateUserDTO): Promise<User> {
-        return this.userService.createUser(
-            createUserDTO.name,
-            createUserDTO.password
-        );
-    }
-
     @Patch(':id')
     async updateUser(
         @Param('id') id: string,
