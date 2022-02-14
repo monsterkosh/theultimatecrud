@@ -5,8 +5,11 @@ import {
     Get,
     Param,
     Patch,
-    Post
+    Post,
+    UseGuards,
+    Headers
 } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { User } from 'src/schemas/user.schema';
 import { CreateUserDTO } from './dtos/create-user.dto';
 import { UpdateUserDTO } from './dtos/update-user.dto';
@@ -30,9 +33,10 @@ export class UsersController {
     @Patch(':id')
     async updateUser(
         @Param('id') id: string,
+        @Headers('Authorization') token: string,
         @Body() updateUserDTO: UpdateUserDTO
     ): Promise<User> {
-        return this.userService.updateUser(id, updateUserDTO);
+        return this.userService.updateUser(id, updateUserDTO, token);
     }
 
     @Delete(':id')
