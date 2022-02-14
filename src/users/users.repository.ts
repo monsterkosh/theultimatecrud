@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model } from 'mongoose';
+import GetUsersRequest from 'src/models/Request/GetUsersRequest';
 import { User, UserDocument } from 'src/schemas/user.schema';
 import { UpdateUserDTO } from './dtos/update-user.dto';
 
@@ -14,8 +15,22 @@ export class UsersRepository {
         return this.userModel.findOne({ id: id });
     }
 
-    async find(usersFilterQuery: FilterQuery<User>): Promise<User[]> {
-        return this.userModel.find(usersFilterQuery);
+    async find(usersFilterQuery: GetUsersRequest): Promise<User[]> {
+        const users = this.userModel.find({});
+
+        if (usersFilterQuery.limit) {
+            users.limit(usersFilterQuery.limit);
+        }
+
+        if (usersFilterQuery.name) {
+            users.where({ name: usersFilterQuery.name });
+        }
+
+        if (usersFilterQuery.id) {
+            users.where({ id: usersFilterQuery.id });
+        }
+
+        return users;
     }
 
     async create(user: User): Promise<User> {

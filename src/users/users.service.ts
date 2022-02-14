@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import GetUsersRequest from 'src/models/Request/GetUsersRequest';
 import { User } from 'src/schemas/user.schema';
 import { JwtUtils } from 'src/utils/jwt.utils';
 import { UpdateUserDTO } from './dtos/update-user.dto';
@@ -13,9 +14,11 @@ export class UsersService {
         private readonly _jwtUtils: JwtUtils
     ) {}
 
-    async getUsers(): Promise<Array<FindUserResponse>> {
+    async getUsers(
+        queryFilters: GetUsersRequest
+    ): Promise<Array<FindUserResponse>> {
         let response: Array<FindUserResponse> = [];
-        const users: User[] = await this.usersRepository.find({});
+        const users: User[] = await this.usersRepository.find(queryFilters);
         if (!users) throw new BadRequestException('error');
         response = users.map((obj) => {
             return new FindUserResponse(obj.id, obj.name);

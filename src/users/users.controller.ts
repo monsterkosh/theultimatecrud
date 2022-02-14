@@ -7,9 +7,11 @@ import {
     Patch,
     Post,
     UseGuards,
-    Headers
+    Headers,
+    Query
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import GetUsersRequest from 'src/models/Request/GetUsersRequest';
 import { User } from 'src/schemas/user.schema';
 import { CreateUserDTO } from './dtos/create-user.dto';
 import { UpdateUserDTO } from './dtos/update-user.dto';
@@ -21,8 +23,10 @@ export class UsersController {
     constructor(private readonly userService: UsersService) {}
 
     @Get()
-    async getUsers(): Promise<FindUserResponse[]> {
-        return this.userService.getUsers();
+    async getUsers(
+        @Query() queryFilters: GetUsersRequest
+    ): Promise<FindUserResponse[]> {
+        return this.userService.getUsers(queryFilters);
     }
 
     @Get(':id')
