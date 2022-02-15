@@ -5,18 +5,14 @@ import {
     Get,
     Param,
     Patch,
-    Post,
-    UseGuards,
     Headers,
     Query
 } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
-import GetUsersRequest from 'src/models/Request/GetUsersRequest';
-import { User } from 'src/schemas/user.schema';
-import { CreateUserDTO } from './dtos/create-user.dto';
-import { UpdateUserDTO } from './dtos/update-user.dto';
-import { FindUserResponse } from './models/response/find-user-response';
-import { UsersService } from './users.service';
+import GetUsersRequest from '../Models/GetUsersRequest';
+import { User } from '../Models/user.schema';
+import { UpdateUserDTO } from '../Dtos/update-user.dto';
+import { FindUserResponse } from '../Models/find-user-response';
+import { UsersService } from '../Services/users.service';
 
 @Controller('users')
 export class UsersController {

@@ -1,11 +1,11 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import GetUsersRequest from 'src/models/Request/GetUsersRequest';
-import { User } from 'src/schemas/user.schema';
-import { JwtUtils } from 'src/utils/jwt.utils';
-import { UpdateUserDTO } from './dtos/update-user.dto';
-import { FindUserResponse } from './models/response/find-user-response';
-import { UsersRepository } from './users.repository';
+import GetUsersRequest from '../Models/GetUsersRequest';
+import { User } from '../Models/user.schema';
+import { JwtUtils } from 'src/Utils/jwt.utils';
+import { UpdateUserDTO } from '../Dtos/update-user.dto';
+import { FindUserResponse } from '../Models/find-user-response';
+import { UsersRepository } from '../Daos/users.repository';
 
 @Injectable()
 export class UsersService {

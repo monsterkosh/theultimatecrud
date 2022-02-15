@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model } from 'mongoose';
-import GetUsersRequest from 'src/models/Request/GetUsersRequest';
-import { User, UserDocument } from 'src/schemas/user.schema';
-import { UpdateUserDTO } from './dtos/update-user.dto';
+import GetUsersRequest from '../Models/GetUsersRequest';
+import { User, UserDocument } from '../Models/user.schema';
+import { UpdateUserDTO } from '../Dtos/update-user.dto';
 
 @Injectable()
 export class UsersRepository {

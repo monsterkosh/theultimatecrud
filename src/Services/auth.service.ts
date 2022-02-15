@@ -1,11 +1,11 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { JwtLoginResponse } from 'src/models/Response/JwtLoginResponse';
-import { User } from 'src/schemas/user.schema';
-import { CreateUsersResponse } from 'src/users/models/response/create-users-response';
-import { BcryptUtils } from 'src/utils/bcrypt.utils';
-import { JwtUtils } from 'src/utils/jwt.utils';
+import { JwtLoginResponse } from 'src/Models/JwtLoginResponse';
+import { User } from '../Models/user.schema';
+import { CreateUsersResponse } from '../Models/create-users-response';
+import { BcryptUtils } from 'src/Utils/bcrypt.utils';
+import { JwtUtils } from 'src/Utils/jwt.utils';
 import { uuid } from 'uuidv4';
-import { AuthRepository } from './auth.repository';
+import { AuthRepository } from '../Daos/auth.repository';
 
 @Injectable()
 export class AuthService {

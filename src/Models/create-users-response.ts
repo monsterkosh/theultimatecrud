@@ -1,4 +1,4 @@
-import { User } from 'src/schemas/user.schema';
+import { User } from '../Models/user.schema';
 
 export class CreateUsersResponse {
     id: string;
