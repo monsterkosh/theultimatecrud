@@ -5,7 +5,7 @@ import { User } from '../Models/user.schema';
 import { JwtUtils } from 'src/Utils/jwt.utils';
 import { UpdateUserDTO } from '../Dtos/update-user.dto';
 import { FindUserResponse } from '../Models/find-user-response';
-import { UsersRepository } from '../Daos/users.repository';
+import { UsersRepository } from '../Daos/users.dao';
 
 @Injectable()
 export class UsersService {

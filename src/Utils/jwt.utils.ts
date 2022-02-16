@@ -1,22 +1,23 @@
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { sign, verify } from 'jsonwebtoken';
-
-const secret = 'Tu password secret';
 
 @Injectable()
 export class JwtUtils {
     constructor() {}
 
+    secret: string = process.env.JWT_SECRET_KEY;
+
     async sign(name: string): Promise<string> {
         const payload = {
             name: name
         };
-        const newJwt = sign(payload, secret, { expiresIn: '1h' });
+        const newJwt = sign(payload, this.secret, { expiresIn: '1h' });
         return newJwt;
     }
 
     async verify(token: string): Promise<any> {
-        const pepe = verify(token, secret);
+        const pepe = verify(token, this.secret);
         return pepe;
     }
 }

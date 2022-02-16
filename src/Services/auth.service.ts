@@ -3,9 +3,9 @@ import { JwtLoginResponse } from 'src/Models/JwtLoginResponse';
 import { User } from '../Models/user.schema';
 import { CreateUsersResponse } from '../Models/create-users-response';
 import { BcryptUtils } from 'src/Utils/bcrypt.utils';
-import { JwtUtils } from 'src/Utils/jwt.utils';
+import { JwtUtils } from '../Utils/jwt.utils';
 import { uuid } from 'uuidv4';
-import { AuthRepository } from '../Daos/auth.repository';
+import { AuthRepository } from '../Daos/auth.dao';
 
 @Injectable()
 export class AuthService {
