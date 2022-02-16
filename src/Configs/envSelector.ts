@@ -6,7 +6,7 @@ export const envSelector = (): string => {
     switch (process.env.CRUD) {
         case 'dev':
             envEntorno = Dotenv.config({
-                path: path.resolve(__dirname, '../../.env.dev')
+                path: path.resolve(__dirname, '../../.env')
             }).parsed;
             break;
         default:

@@ -10,7 +10,7 @@ import { UsersRepository } from 'src/Daos/users.dao';
 import { JwtUtils } from 'src/Utils/jwt.utils';
 import { UsersController } from 'src/Controllers/users.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { User, UserSchema } from 'src/Models/user.schema';
+import { User, UserSchema } from 'src/Models/Schema/user.schema';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({

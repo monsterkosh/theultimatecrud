@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { JwtLoginResponse } from 'src/Models/JwtLoginResponse';
-import { User } from '../Models/user.schema';
+import { JwtLoginResponse } from 'src/Models/jwt-login-response';
+import { User } from '../Models/Schema/user.schema';
 import { CreateUsersResponse } from '../Models/create-users-response';
 import { BcryptUtils } from 'src/Utils/bcrypt.utils';
 import { JwtUtils } from '../Utils/jwt.utils';

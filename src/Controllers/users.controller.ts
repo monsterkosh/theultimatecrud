@@ -8,8 +8,8 @@ import {
     Headers,
     Query
 } from '@nestjs/common';
-import GetUsersRequest from '../Models/GetUsersRequest';
-import { User } from '../Models/user.schema';
+import GetUsersRequest from '../Models/get-users-request';
+import { User } from '../Models/Schema/user.schema';
 import { UpdateUserDTO } from '../Dtos/update-user.dto';
 import { FindUserResponse } from '../Models/find-user-response';
 import { UsersService } from '../Services/users.service';
