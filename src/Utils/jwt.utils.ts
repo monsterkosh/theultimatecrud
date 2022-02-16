@@ -17,7 +17,7 @@ export class JwtUtils {
     }
 
     async verify(token: string): Promise<any> {
-        const pepe = verify(token, this.secret);
-        return pepe;
+        const vertifiedToken = verify(token, this.secret);
+        return vertifiedToken;
     }
 }

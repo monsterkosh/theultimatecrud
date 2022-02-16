@@ -14,7 +14,7 @@ export class AuthService {
         private readonly _jwtUtils: JwtUtils
     ) {}
 
-    async register(name: string, password: string): Promise<any> {
+    async register(name: string, password: string): Promise<Object> {
         const hashing = await BcryptUtils.generateSalt(password);
         const response: User = await this.authRepository.createUser({
             id: uuid(),
@@ -25,7 +25,7 @@ export class AuthService {
         return new CreateUsersResponse(response);
     }
 
-    async login(name: string, password: string): Promise<any> {
+    async login(name: string, password: string): Promise<Object> {
         const findUser = await this.authRepository.findUserByName(name);
         if (!findUser) throw new BadRequestException('User not found');
         const decrypt = await BcryptUtils.comparePass(

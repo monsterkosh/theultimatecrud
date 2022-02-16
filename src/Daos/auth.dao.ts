@@ -14,7 +14,7 @@ export class AuthRepository {
         return newUser.save();
     }
 
-    async findUserByName(name: string): Promise<any> {
+    async findUserByName(name: string): Promise<User> {
         const findedUser = await this.userModel.findOne({ name: name });
         return findedUser;
     }
