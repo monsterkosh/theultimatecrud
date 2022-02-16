@@ -2,8 +2,6 @@ import * as path from 'path';
 import * as Dotenv from 'dotenv';
 
 export const envSelector = (): string => {
-    console.log(`Enviroment = ${process.env.CRUD}`);
-    console.log('a ver');
     let envEntorno;
     switch (process.env.CRUD) {
         case 'dev':
